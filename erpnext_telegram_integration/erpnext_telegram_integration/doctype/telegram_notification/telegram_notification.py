@@ -215,16 +215,16 @@ def get_context(context):
                 reference_name=doc.name,
                 attachment=attachment,
             )
-
-            doc.message_notification = message
-            doc.from_user = frappe.session.user
-            doc.party_type = frappe.get_value(
-                "Telegram User Settings", telegram_user, "party"
-            )
-            doc.to_party = frappe.get_value(
-                "Telegram User Settings", telegram_user, "telegram_user"
-            )
-            creat_extra_notification_log(doc)
+            # Vincent disable creat_extra_notification_log
+            # doc.message_notification = message
+            # doc.from_user = frappe.session.user
+            # doc.party_type = frappe.get_value(
+            #     "Telegram User Settings", telegram_user, "party"
+            # )
+            # doc.to_party = frappe.get_value(
+            #     "Telegram User Settings", telegram_user, "telegram_user"
+            # )
+            # creat_extra_notification_log(doc)
 
     def get_attachment(self, doc):
         """ check print settings are attach the pdf """
