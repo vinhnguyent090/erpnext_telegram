@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_rename": 1,
  "autoname": "format:{telegram_user}-{telegram_settings}",
  "creation": "2019-12-01 02:31:10.562643",
@@ -54,8 +55,7 @@
   {
    "fieldname": "telegram_chat_id",
    "fieldtype": "Data",
-   "label": "Telegram Chat ID",
-   "read_only": 1
+   "label": "Telegram Chat ID"
   },
   {
    "fieldname": "telegram_settings",
@@ -79,7 +79,8 @@
    "label": "Generate Telegram Token"
   }
  ],
- "modified": "2020-05-09 00:02:07.022847",
+ "links": [],
+ "modified": "2021-08-25 19:50:31.087536",
  "modified_by": "Administrator",
  "module": "Erpnext Telegram Integration",
  "name": "Telegram User Settings",
