@@ -18,7 +18,7 @@ class TelegramSettings(Document):
 
 
 @frappe.whitelist()
-def send_to_telegram(telegram_user, message, reference_doctype=None, reference_name=None, attachment=None):
+async def send_to_telegram(telegram_user, message, reference_doctype=None, reference_name=None, attachment=None):
 
 	space = "\n" * 2
 	telegram_chat_id = frappe.db.get_value('Telegram User Settings', telegram_user,'telegram_chat_id')
@@ -41,11 +41,11 @@ def send_to_telegram(telegram_user, message, reference_doctype=None, reference_n
 			if attachment == 1:
 				attachment_url =get_url_for_telegram(reference_doctype, reference_name)
 				message = message + space +  attachment_url
-			bot.send_message(chat_id=telegram_chat_id, text=message)
+			await bot.send_message(chat_id=telegram_chat_id, text=message)
 		
 	else:
 		message = space + str(message) + space
-		bot.send_message(chat_id=telegram_chat_id, text=message)
+		await bot.send_message(chat_id=telegram_chat_id, text=message)
 
 
 
