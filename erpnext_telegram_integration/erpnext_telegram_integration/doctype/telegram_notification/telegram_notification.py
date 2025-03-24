@@ -21,6 +21,7 @@ from six import string_types
 from erpnext_telegram_integration.erpnext_telegram_integration.doctype.telegram_settings.telegram_settings import (
     send_to_telegram,
 )
+import asyncio
 
 
 class TelegramNotification(Document):
@@ -208,13 +209,13 @@ def get_context(context):
         message = message + frappe.render_template(self.message, context)
         attachment = self.get_attachment(doc)
         for telegram_user in recipients_telegram_user_list:
-            send_to_telegram(
+            asyncio.run(send_to_telegram(
                 telegram_user=telegram_user,
                 message=message,
                 reference_doctype=doc.doctype,
                 reference_name=doc.name,
                 attachment=attachment,
-            )
+            ))
             # Vincent disable creat_extra_notification_log
             # doc.message_notification = message
             # doc.from_user = frappe.session.user
