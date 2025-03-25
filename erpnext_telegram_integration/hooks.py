@@ -17,7 +17,7 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/erpnext_telegram_integration/css/erpnext_telegram_integration.css"
 # app_include_js = "/assets/erpnext_telegram_integration/js/erpnext_telegram_integration.js"
-app_include_js = "/assets/js/erpnext_telegram_integration.min.js"
+# app_include_js = "/assets/js/erpnext_telegram_integration.min.js"
 
 
 
